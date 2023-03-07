@@ -49,6 +49,7 @@ export default {
 
   router: {
     middleware: 'pages',
+    base: '/3d-to-points-animation/'
     //base: '/examples/vuegl/'
   },
 
