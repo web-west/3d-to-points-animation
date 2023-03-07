@@ -1,6 +1,6 @@
 <template>
   <div class="animation">
-		
+
 	</div>
 </template>
 
@@ -42,12 +42,13 @@ export default {
   mounted() {
     var camera, pos, controls, scene, renderer, geometry, geometry1, material;
     let vm = this;
+    
     function init() {
       scene = new THREE.Scene();
       scene.background = new THREE.Color(0x000000);
       renderer = new THREE.WebGLRenderer();
       let states = [];
-      loader.load("/model.vtk", function (mesh) {
+      loader.load(`${vm.$nuxt.context.$config._app.basePath}model.vtk`, function (mesh) {
         console.log(mesh);
         vm.geometry = new THREE.BufferGeometry();
         let numVertices = mesh.vertices.length;
@@ -93,7 +94,7 @@ export default {
           uniforms: {
             dot: {
               type: "t",
-              value: new THREE.TextureLoader().load("/texture.png"),
+              value: new THREE.TextureLoader().load(`${vm.$nuxt.context.$config._app.basePath}texture.png`),
             },
             blend: { type: "f", value: 0 },
             size: { type: "f", value: 2.1 },
